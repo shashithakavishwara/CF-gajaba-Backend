@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "7c1f45f1-7c97-425e-a8c4-b751586a28b3",
+		"name": "ITP backend -afra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11839336"
+	},
+	"item": [
+		{
+			"name": "Ticket Records",
+			"item": [
+				{
+					"name": "Get All ticket records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ticket/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ticket",
+								""
+							]
+						},
+						"description": "This API provides access to all news data in the database through endpoints that allow users to retrieve news articles or filter results based on certain criteria. It returns data in JSON or XML format and has documentation that explains how to use it."
+					},
+					"response": []
+				},
+				{
+					"name": "Get ticket record by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/ticket/6450d09f33bd2a6ed39a929c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ticket",
+								"6450d09f33bd2a6ed39a929c"
+							]
+						},
+						"description": "This API provides access a specific news based on the news id."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ticket record",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNlYTJhZmQyMjVkODA1NWMyZWM1NjI1In0sImlhdCI6MTY3NjI5MDg3NCwiZXhwIjoxNjc2NjUwODc0fQ.6787d4RgA8P32QlyBYJ_u1zgtzc5E3Ew4j0NajD3vPc",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/ticket/6450d09f33bd2a6ed39a929c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ticket",
+								"6450d09f33bd2a6ed39a929c"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "This API provides deletion of a specific news. Used by admin, in order to delete any unwanted news articles."
+					},
+					"response": []
+				},
+				{
+					"name": "Add ticket record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNlZmI3NDI4ZDhhN2RmZWQ0YjI5NjgwIn0sImlhdCI6MTY3NjY1NDQwMiwiZXhwIjoxNjc3MDE0NDAyfQ.DaQwMHCiTRPKci6xadjzWVg_tidLkorjkm9tP7lOhds",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kalana Rathnayake\",\r\n    \"id\": \"980910474V\",\r\n    \"description\": \"Test Description\",\r\n    \"subject\": \"Test subject\",\r\n    \"date\": \"03/04/2020\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/ticket/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ticket",
+								""
+							]
+						},
+						"description": "This API provides access to insert new news into the news board. Used by admin to enter new news articles to the news board."
+					},
+					"response": []
+				},
+				{
+					"name": "Edit ticket record",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNlYTJhZmQyMjVkODA1NWMyZWM1NjI1In0sImlhdCI6MTY3NjI5MDg3NCwiZXhwIjoxNjc2NjUwODc0fQ.6787d4RgA8P32QlyBYJ_u1zgtzc5E3Ew4j0NajD3vPc",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Naween Rathnayake\",\r\n    \"id\": \"980910474V\",\r\n    \"description\": \"Test Description\",\r\n    \"subject\": \"Test subject\",\r\n    \"date\": \"03/04/2020\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/ticket/6450d09f33bd2a6ed39a929c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"ticket",
+								"6450d09f33bd2a6ed39a929c"
+							]
+						},
+						"description": "This API provides access to update any existing news in the news board. Used by admin to perform any modifications to any existing news articles in the news board."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
