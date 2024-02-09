@@ -18,7 +18,7 @@ async function connectMongoDB() {
   await mongoose.connect('mongodb+srv://GajabaDB:GajabaDB@cluster0.7rzxpnk.mongodb.net/?retryWrites=true&w=majority');
 }
 
-// app.use('/ticket', require('./route/ticket.route'));
+app.use('/ticket', require('./route/ticket.route'));
 app.use('/player', require('./route/player.route'))
 app.use('/event', require('./route/event.route'))
 app.use('/winner', require('./route/winnerRoutes'))
