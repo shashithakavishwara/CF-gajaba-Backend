@@ -3,15 +3,30 @@ const Event = require('../model/Event.model');
 //Create new Event 
 const createEvent = async (req, res) => {
     //catching data from front end to these attributes
-    const { eventId, eventName, scoreFor1, scoreFor2, scoreFor3} = req.body;
+    const {
+        eventId, eventName, type,
+        firstPlaceScore, firstPlaceHouse, firstPlaceEpf, noteForPlace1,
+        secondPlaceScore, secondPlaceHouse, secondPlaceEpf, noteForPlace2,
+        thirdPlaceScore, thirdPlaceHouse, thirdPlaceEpf, noteForPlace3
+    } = req.body;
 
     //create a object to store saved data to save in the mongo db database
     const event = new Event({
         eventId,
         eventName,
-        scoreFor1,
-        scoreFor2,
-        scoreFor3
+        type,
+        firstPlaceScore,
+        firstPlaceHouse,
+        firstPlaceEpf,
+        noteForPlace1,
+        secondPlaceScore,
+        secondPlaceHouse,
+        secondPlaceEpf,
+        noteForPlace2,
+        thirdPlaceScore,
+        thirdPlaceHouse,
+        thirdPlaceEpf,
+        noteForPlace3
     });
 
     //sending created ticket object to the database 
@@ -50,9 +65,20 @@ const updateEvent = async (req, res) => {
         then((exsistingEvent) => {
             exsistingEvent.eventId = req.body.eventId;
             exsistingEvent.eventName = req.body.eventName;
-            exsistingEvent.scoreFor1 = req.body.scoreFor1;
-            exsistingEvent.scoreFor2 = req.body.scoreFor2;
-            exsistingEvent.scoreFor3 = req.body.scoreFor3;
+            exsistingEvent.type = req.body.type;
+            exsistingEvent.firstPlaceScore = req.body.firstPlaceScore;
+            exsistingEvent.firstPlaceHouse = req.body.firstPlaceHouse;
+            exsistingEvent.firstPlaceEpf = req.body.firstPlaceEpf;
+            exsistingEvent.noteForPlace1 = req.body.noteForPlace1;
+            exsistingEvent.secondPlaceScore = req.body.secondPlaceScore;
+            exsistingEvent.secondPlaceHouse = req.body.secondPlaceHouse;
+            exsistingEvent.secondPlaceEpf = req.body.secondPlaceEpf;
+            exsistingEvent.noteForPlace2 = req.body.noteForPlace2;
+            exsistingEvent.thirdPlaceScore = req.body.thirdPlaceScore;
+            exsistingEvent.thirdPlaceHouse = req.body.thirdPlaceHouse;
+            exsistingEvent.thirdPlaceEpf = req.body.thirdPlaceEpf;
+            exsistingEvent.noteForPlace3 = req.body.noteForPlace3;
+
             exsistingEvent.save()
                 .then((updatedEvent) => res.json(updatedEvent))
                 .catch((error) => res.status(400).json("Error: " + error));
