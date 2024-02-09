@@ -86,10 +86,18 @@ const updateEvent = async (req, res) => {
         .catch((error) => res.status(400).json("Error: 1" + error));
 };
 
+//Delete Ticket by id
+const deleteEvent = async (req, res) => {
+    console.log(req.params.id);
+    Event.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Event has been Deleted'))
+        .catch(err => res.status(400).json('Error : ' + err));
+}
+
 //export created functions 
 module.exports = {
     createEvent,
-    // deleteTicket,
+    deleteEvent,
     getEventById,
     getEvent,
     updateEvent

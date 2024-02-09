@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const {
-createEvent, getEventById, getEvent, updateEvent
+    createEvent, getEventById, getEvent, updateEvent, deleteEvent
 } = require("../controller/Event.controller");
 
 //@route  POST api/ticket
@@ -15,7 +15,7 @@ router.get("/:id", getEventById);
 
 // //@route  DELETE api/ticket
 // //@desc   delete ticket
-// router.delete("/:id", deleteTicket);
+router.delete("/:id", deleteEvent);
 
 // //@route  GET api/ticket/all
 // //@desc   get all ticket
